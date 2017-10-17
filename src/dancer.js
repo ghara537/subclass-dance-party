@@ -59,10 +59,15 @@ Dancer.prototype.lineUp = function(top, left) {
 
 Dancer.prototype.attack = function() {
 
-  var oldleft = this.left;
-  var newleft = oldleft + 100;
-  this.$node.animate({left: newleft});
-  this.$node.animate({left: oldleft});
+  var oldLeft = this.left;
+  var newLeft;
+  if (oldLeft < $('body').width() / 2) {
+    newLeft = oldLeft + 500;
+  } else {
+    newLeft = oldLeft - 500;
+  }
+  this.$node.animate({left: newLeft});
+  this.$node.animate({left: oldLeft});
   //$(this).rotate(45);
   // $(this).rotate({ angle: 0, animate: 180});
 };
