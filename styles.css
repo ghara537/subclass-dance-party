@@ -5,26 +5,32 @@ body{
   margin: 0px;
   background: black url('images/pokemon-gym.jpg') no-repeat fixed center;
   font-size: 18px;
+  font-family: Helvetica;
 }
 body, a:link, a:visited, a:active{
-  color: lightblue;
+  color: black;
 }
-.title, .addDancerButton{
+.centered {
+  margin: 0 auto;
+}
+.title, .addDancerButton, .lineUpButton{
   padding:5px 12px;
-  float:right;
 }
 .topbar{
-  height:32px;
-  background-color: #555;
+  height:48px;
+  padding: 5px;
 }
 .title{
-  background-color: #777;
 }
 .dancer{
   position:absolute;
 }
 .button {
-  
+  background: linear-gradient(white, gray);
+  border-radius: 5px;
+}
+.button:hover {
+  background-color: white;
 }
 
 /*
