@@ -3,6 +3,7 @@
 var Dancer = function(top, left, timeBetweenSteps) {
   // use jQuery to create an HTML <span> tag
   this.$node = $('<span class="dancer"></span>');
+  this.$node.append('<img src="images/mj.jpeg">');
   
   var stepper = this;
 
