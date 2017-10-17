@@ -32,13 +32,13 @@ $(document).ready(function() {
   $('.lineUpButton').on('click', function(event) {
     for (var i = 0; i < dancers.length; i++) {
       var widthRatio = $('body').width() / dancers.length;
-      // var top = '30%';
-      // var left = widthRatio * (i + 1);
-      var newPosition = {top: '+30%', left: widthRatio * (i + 1)};
-      console.log(newPosition);
+      var top = '30%';
+      var left = widthRatio * (i + 1);
+      // var newPosition = {top: '+30%', left: this.left};
+      // console.log(newPosition);
       // divide size of screen by # of dancers, and multiply that by their num in array
       // dancers[i].setPosition(top, left);
-      dancers[i].$node.animate(newPosition);
+      dancers[i].lineUp(top, left);
       
     }
   });
