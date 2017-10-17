@@ -4,27 +4,33 @@
     <title>Object Dance Party</title>
     <link rel="stylesheet" type="text/css" href="styles.css" />
     <script src="lib/jquery.js"></script>
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="lib/jquery.flip.min.js"></script>
+    
     <script src="src/dancer.js"></script>
     <script src="src/blinkyDancer.js"></script>
     <script src="src/fadingDancer.js"></script>
-    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-    <script src="src/jquery.flip.min.js"></script>
+    <script src="src/slideDancer.js"></script>
+    
   </head>
   <body>
+    <audio src="audio/opening.mp3" autoplay></audio>  
     <div class="topbar">
       <span class="title">object dance party</span>
       <a href="#" class="addDancerButton" data-dancer-maker-function-name="BlinkyDancer">add a blinky dancer</a>
       <a href="#" class="addDancerButton" data-dancer-maker-function-name="FadingDancer">add a fading dancer</a>
+      <a href="#" class="addDancerButton" data-dancer-maker-function-name="SlideDancer">add a sliding dancer</a>
+
     </div>
     
-    <div class="flip"> 
+    <!--<div class="flip"> 
       <div class="front"> 
         <img src="images/mj.jpeg" alt="" />
       </div> 
       <div class="back">
         <h3>Some Text in the Back!</h3>
       </div> 
-    </div>
+    </div>-->
     
     <!--<script>
       $(function() {
