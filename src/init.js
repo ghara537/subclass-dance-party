@@ -42,5 +42,31 @@ $(document).ready(function() {
       
     }
   });
+  
+  $('.battleButton').on('click', function(event) {
+    var windowHeight = $('body').height();
+    var heightRatio = $('body').height() / (dancers.length / 2);
+    var windowWidth = $('body').width();
+    for (var i = 0; i < dancers.length; i++) {
+      if (i < Math.floor(dancers.length / 2)) {
+
+        // var top = this.top; // windowHeight * 0.75 * (i / (dancers.length / 2));
+        // height / (# dancers / 2)
+        // multiply by i for first half
+        var top = 0.25 * heightRatio * i + (0.50 * windowHeight);
+        var left = windowWidth * 0.75 - 200; //windowWidth * ((i * 1.1) - 0.25);
+      } else {
+        var widthRatio = ($('body').width() - 50) / dancers.length;
+        // var top = this.top; // windowHeight * 0.75 * (dancers.length / 2) / i;
+        // height / (# dancers / 2)
+        // multiply by i - (# dancers / 2)
+        var top = 0.25 * heightRatio * (i - dancers.length / 2) + (0.50 * windowHeight);
+        var left = '25%'; //windowWidth * ((i * 0.9) + 0.75);
+      }
+    
+      dancers[i].lineUp(top, left);
+    }
+  });
+  
 });
 
