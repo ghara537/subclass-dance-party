@@ -20,6 +20,8 @@ var Dancer = function(top, left, timeBetweenSteps) {
     }
   }});
   
+  this.$node.on('click', this.attack.bind(this));
+  
   dancers.push(this);
 };
 
@@ -50,10 +52,20 @@ Dancer.prototype.setPosition = function(top, left) {
 
 Dancer.prototype.lineUp = function(top, left) {
   var newPosition = {top: top, left: left};
+  this.top = top;
+  this.left = left;
   this.$node.animate(newPosition);
 };
 
+Dancer.prototype.attack = function() {
 
+  var oldleft = this.left;
+  var newleft = oldleft + 100;
+  this.$node.animate({left: newleft});
+  this.$node.animate({left: oldleft});
+  //$(this).rotate(45);
+  // $(this).rotate({ angle: 0, animate: 180});
+};
 
 
 
