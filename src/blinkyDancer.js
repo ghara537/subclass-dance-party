@@ -1,5 +1,6 @@
 var BlinkyDancer = function(top, left, timeBetweenSteps) {
   Dancer.call(this, top, left, timeBetweenSteps);
+  this.$node.append('<img src="images/pikachu.png" height="200px">');
   this.$node.css(this.colorPicker());
   this.$node.addClass('blinky');
   this.$node.on('click', this.onClick);

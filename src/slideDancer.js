@@ -1,6 +1,7 @@
 var SlideDancer = function(top, left, timeBetweenSteps) {
   Dancer.call(this, top, left, timeBetweenSteps);
-  this.$node.css(this.colorPicker());
+  this.$node.append('<img src="images/psyduck.gif" height="200px">');
+  // this.$node.css(this.colorPicker());
   this.$node.addClass('sliding');
 };
 

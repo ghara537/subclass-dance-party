@@ -31,9 +31,9 @@ $(document).ready(function() {
   
   $('.lineUpButton').on('click', function(event) {
     for (var i = 0; i < dancers.length; i++) {
-      var widthRatio = $('body').width() / dancers.length;
-      var top = '30%';
-      var left = widthRatio * (i + 1);
+      var widthRatio = ($('body').width() - 50) / dancers.length;
+      var top = '60%';
+      var left = widthRatio * (i + 0.25);
       // var newPosition = {top: '+30%', left: this.left};
       // console.log(newPosition);
       // divide size of screen by # of dancers, and multiply that by their num in array

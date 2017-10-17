@@ -3,9 +3,7 @@ body, html{
 }
 body{
   margin: 0px;
-  background-color: black;
-  background-image: url('images/dance-floor.png');
-  /*background-image: url('https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/FBzhkcf/dance-floor-animated-background_4yy_zhwhx__F0000.png'),*/
+  background: black url('images/pokemon-gym.jpg') no-repeat fixed center;
   font-size: 18px;
 }
 body, a:link, a:visited, a:active{
@@ -23,14 +21,9 @@ body, a:link, a:visited, a:active{
   background-color: #777;
 }
 .dancer{
-  padding: 10px;
-  border:5px solid red;
-  border-radius:5px;
   position:absolute;
 }
-
-.fading{
-  border-color: blue;
+.button {
   
 }
 

@@ -1,5 +1,6 @@
 var FadingDancer = function(top, left, timeBetweenSteps) {
   Dancer.call(this, top, left, timeBetweenSteps);
+  this.$node.append('<img src="images/togepi.gif" height="200px">');
   this.$node.addClass('fading');
 };
 
