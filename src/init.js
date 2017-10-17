@@ -22,16 +22,25 @@ $(document).ready(function() {
 
     // make a dancer with a random position
     var dancer = new dancerMakerFunction(
-      $('body').height() * Math.random(),
-      $('body').width() * Math.random(),
+      ($('body').height() - 200) * Math.random(),
+      ($('body').width() - 100) * Math.random(),
       Math.random() * 1000
     );
     $('body').append(dancer.$node);
   });
   
-  $('.dancer').on('click', function(event) {
-    console.log('i was clicked!');
-    $(this).rotate({ angle: 0, animate: 180});
+  $('.lineUpButton').on('click', function(event) {
+    for (var i = 0; i < dancers.length; i++) {
+      var widthRatio = $('body').width() / dancers.length;
+      // var top = '30%';
+      // var left = widthRatio * (i + 1);
+      var newPosition = {top: '+30%', left: widthRatio * (i + 1)};
+      console.log(newPosition);
+      // divide size of screen by # of dancers, and multiply that by their num in array
+      // dancers[i].setPosition(top, left);
+      dancers[i].$node.animate(newPosition);
+      
+    }
   });
 });
 
