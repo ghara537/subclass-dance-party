@@ -30,8 +30,8 @@ $(document).ready(function() {
   });
   
   $('.lineUpButton').on('click', function(event) {
+    var widthRatio = ($('body').width() - 50) / dancers.length;
     for (var i = 0; i < dancers.length; i++) {
-      var widthRatio = ($('body').width() - 50) / dancers.length;
       var top = '60%';
       var left = widthRatio * (i + 0.25);
       dancers[i].lineUp(top, left);

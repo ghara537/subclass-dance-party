@@ -4,10 +4,15 @@
   <title>Mocha Spec Runner</title>
   <link rel="stylesheet" href="lib/mocha/mocha.css">
   <script src="lib/jquery.js"></script>
+  <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+  <script src="lib/jquery.flip.min.js"></script>
+  <script src="lib/jqueryRotate.js"></script>
   <script src="lib/mocha/mocha.js"></script>
   <script src="lib/chai/chai.js"></script>
   <script src="lib/sinon/sinon.js"></script>
   <script>
+    window.dancers = []; // since init.js doesn't run until document.ready,
+    // the Dancer constructors need to access the global dancer array
     mocha.setup('bdd');
     window.expect = chai.expect;
     $(function() {
@@ -19,6 +24,9 @@
   <script src="src/blinkyDancer.js"></script>
   <script src="src/fadingDancer.js"></script>
   <script src="spec/fadingDancerSpec.js"></script>
+  <script src="src/slideDancer.js"></script>
+  <script src="spec/slideDancerSpec.js"></script>
+  <script src="spec/dancerSpec.js"></script>
 </head>
 <body>
 <div id="mocha"></div>
