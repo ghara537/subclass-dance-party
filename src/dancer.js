@@ -5,6 +5,7 @@ var Dancer = function(top, left, timeBetweenSteps) {
   this.$node = $('<span class="dancer"></span>');
   this.top = top;
   this.left = left;
+  this.strength = Math.random();
   this.position = {top: top, left: left};
   this.step(timeBetweenSteps);
   // now that we have defined the dancer object, we can start setting up important parts of it by calling the methods we wrote

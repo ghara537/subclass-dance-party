@@ -18,10 +18,10 @@ BlinkyDancer.prototype.step = function(timer) {
   this.$node.toggle();
 };
 
-BlinkyDancer.prototype.onClick = function() {
-  $(this).rotate(45);
-  // $(this).rotate({ angle: 0, animate: 180});
-};
+// BlinkyDancer.prototype.onClick = function() {
+//   //$(this).rotate(45);
+//   // $(this).rotate({ angle: 0, animate: 180});
+// };
 
 
 
