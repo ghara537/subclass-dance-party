@@ -46,20 +46,25 @@ $(document).ready(function() {
     console.log('earlier point');
     for (var i = 0; i < dancers.length; i++) {
       console.log('looping');
+      
       //lines up on the left side
       if (i < Math.floor(dancers.length / 2)) {
-        var top = 0.25 * heightRatio * i + (0.50 * windowHeight);
-        var left = windowWidth * 0.2;
+        var widthRatio = ($('body').width() - 50) / dancers.length;
+        var top = (0.25 * heightRatio * i) + (0.60 * windowHeight);
+        var left = (0.4 * widthRatio) * ( 1 - i) + (0.15 * windowWidth);  //(windowWidth * 0.9 - 200) * (i-(dancers.length / 2));
       } else {
         //lines up on the right side
         var widthRatio = ($('body').width() - 50) / dancers.length;
-        var top = 0.25 * heightRatio * (i - dancers.length / 2) + (0.50 * windowHeight);
-        var left = windowWidth * 0.8 - 200;
+        var top = (0.25 * heightRatio * (i - dancers.length / 2)) + (0.60 * windowHeight);
+        var left = (0.4 * widthRatio * (i - dancers.length / 2)) + (0.85 * windowWidth - 300);  //(windowWidth * 0.9 - 200) * (i-(dancers.length / 2));
       }
-      console.log('later point');
-      //dancers[i].step = function() {};
-      //dancers[i].$node.show();
+
+      dancers[i].$node.show();
+
+      dancers[i].dancing = false;
+
       dancers[i].lineUp(top, left);
+
     }
   });
   
@@ -69,23 +74,60 @@ $(document).ready(function() {
     var index = Math.floor(Math.random() * (halfDancers));
     // grab pokemon's position
     var attacker = dancers[index];
+    var attackerCounter = 0;
+    var opponentCounter = 0;
+    
+    while (attacker.$node.hasClass('fainted')) {
+      
+      index = index + 1 % halfDancers;
+
+      attacker = dancers[index];
+
+      attackerCounter++;
+
+      if (attackerCounter > halfDancers) {
+
+        return;
+      }
+    }
     var opponent = dancers[index + halfDancers];
+    
+    while (opponent.$node.hasClass('fainted')) {
+      
+      index = index + 1 % halfDancers;
+      opponent = dancers[index + halfDancers];
+      opponentCounter++;
+      if (opponentCounter > halfDancers) {
+        return;
+      }
+    }
     
     // select an opponent (somehow)
     // bring them to the middle
     // call attack method on both
-    attacker.attack();
-    opponent.attack();
+    var battleSpotLeft = .35 * $('body').width();
+    var battleSpotTop = .75 * $('body').height();
+    var battleSpotRight = .65 * $('body').width() - 200;
+    attacker.$node.animate({left: battleSpotLeft, top: battleSpotTop});
+    opponent.$node.animate({left: battleSpotRight, top: battleSpotTop});
+    
+    
     // pick one to "faint" (whichever one has higher strength)
     setTimeout(function() { 
-      if (attacker.strength < opponent.strength) {
-        attacker.$node.addClass('fainted');
-        attacker.$node.rotate(270);
-      } else {
-        opponent.$node.addClass('fainted');
-        opponent.$node.rotate(90);
-      }
+      attacker.attack();
+      opponent.attack();
+      setTimeout(function() { 
+        if (attacker.strength < opponent.strength) {
+          attacker.$node.addClass('fainted');
+          attacker.$node.rotate(270);
+        } else {
+          opponent.$node.addClass('fainted');
+          opponent.$node.rotate(90);
+        }
+      }, 500);
     }, 1000);
+    
+    
     // make weaker one faint (rotate)
     // send back to lineup
     

@@ -5,6 +5,7 @@ var Dancer = function(top, left, timeBetweenSteps) {
   this.left = left;
   this.strength = Math.random();
   this.position = {top: top, left: left};
+  this.dancing = true;
   this.step(timeBetweenSteps);
   // now that we have defined the dancer object, we can start setting up important parts of it by calling the methods we wrote
   // this one sets the position to some random default point within the body
@@ -59,6 +60,7 @@ Dancer.prototype.lineUp = function(top, left) {
 Dancer.prototype.attack = function() {
 
   var oldLeft = this.left;
+  var oldTop = this.top;
   var newLeft;
   if (oldLeft < $('body').width() / 2) {
     newLeft = oldLeft + 500;
@@ -66,7 +68,7 @@ Dancer.prototype.attack = function() {
     newLeft = oldLeft - 500;
   }
   this.$node.animate({left: newLeft});
-  this.$node.animate({left: oldLeft});
+  this.$node.animate({left: oldLeft, top: oldTop});
   //$(this).rotate(45);
   // $(this).rotate({ angle: 0, animate: 180});
 };

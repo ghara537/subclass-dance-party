@@ -14,6 +14,11 @@ SlideDancer.prototype.step = function(timer) {
   var oldleft = this.position.left;
   var newleft = oldleft + 100;
   this.$node.show({left: oldleft});
-  this.$node.animate({left: newleft});
-  this.$node.animate({left: oldleft});
+  
+  if (this.dancing) {
+    this.$node.animate({left: newleft});
+    this.$node.animate({left: oldleft});
+  } else {
+    this.$node.show();
+  }
 };
